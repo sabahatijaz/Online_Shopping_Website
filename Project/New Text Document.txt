@@ -1,0 +1,88 @@
+<?php
+
+$to='p156055@nu.edu.pk';
+$subject='my email';
+$name=$_POST['name'];
+$email=$_POST['email'];
+$message=$_POST['message'];
+$message= <<<EMAIL
+Hi my name is $name;
+$message
+From $name
+Oh ya ,my email is $email
+
+EMAIL;
+$header='$email';
+if($_POST)
+{
+
+mail($to, $subject,$message,$header);
+$feedback = 'Email sent';
+
+}
+
+?>
+<html>
+<head>
+<title>Contact Us</title>
+<style type="text/css">
+form
+{
+width: 400px;
+
+}
+form ul
+{
+list-style-type : none;
+}
+form ul li
+{
+margin: 15px 0;
+
+}
+form label
+{
+display : block;
+font-size:2em;
+
+}
+form input
+{
+font-size:2em;
+padding:5px;
+border:#ccc 3px solid;
+width:100%
+}
+</style>
+</head>
+<body>
+<div id='wrapper'>
+<div id='content'>
+<ul id="nav">
+</ul>
+<h2>Contact</h2>
+<p id="feedback"><?php echo $feedback; ?></p>
+<form action="Contact.php" method="post">
+<ul>
+<li>
+<label for="name"> Name: </label>
+<input type="text" name="name" id="name" />
+
+</li>
+<li>
+<label for="email"> Email: </label>
+<input type="text " name="email" id="email" />
+</li>
+
+<li>
+<label for="message"> Comment: </label>
+<textarea id="message" name="message" cols="42" rows="9">
+</textarea>
+</li>
+<li>
+<input type="submit" value="Submit">
+</li>
+</ul>
+</form>
+</body>
+</html>
